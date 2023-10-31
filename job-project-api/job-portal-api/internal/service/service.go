@@ -19,6 +19,11 @@ type UserService interface {
 	AddCompanyDetails(ctx context.Context, data models.Company) (models.Company, error)
 	ViewAllCompanies(ctx context.Context) ([]models.Company, error)
 	ViewCompanyDetail(ctx context.Context, cid uint64) (models.Company, error)
+	ViewJob(ctx context.Context, cid uint64) ([]models.Job, error)
+
+	AddJobDetails(ctx context.Context, jobData models.Job, cid uint64) (models.Job, error)
+	ViewAllJobs(ctx context.Context) ([]models.Job, error)
+	ViewJobById(ctx context.Context, jid uint64) (models.Job, error)
 }
 
 func NewService(userRepo repository.UserRepo, a *auth.Auth) (UserService, error) {

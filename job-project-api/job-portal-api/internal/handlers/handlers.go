@@ -30,6 +30,10 @@ func API(a *auth.Auth, svc service.UserService) *gin.Engine {
 	router.POST("/companies", m.Authenticate(h.AddCompany))
 	router.GET("/companies", m.Authenticate(h.ViewAllCompanies))
 	router.GET("/companies/:id", m.Authenticate(h.ViewCompany))
+	router.POST("/companies/job/:cid", m.Authenticate(h.AddJobs))
+	router.GET("/companies/jobs/:id", m.Authenticate(h.ViewJob))
+	router.GET("jobs", m.Authenticate(h.ViewAllJobs))
+	router.GET("/jobs/:id", m.Authenticate(h.ViewJobByID))
 	return router
 }
 

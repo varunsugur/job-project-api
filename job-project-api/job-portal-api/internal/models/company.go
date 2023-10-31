@@ -13,7 +13,7 @@ type Company struct {
 type Job struct {
 	gorm.Model
 	Company      Company `json:"-" gorm:"ForeignKey:cid"`
-	Cid          uint64  `json:"cid"`
+	Cid          uint    `json:"cid"`
 	Name         string  `json:"name"`
 	Salary       string  `json:"salary"`
 	NoticePeriod string  `json:"notice_period"`
